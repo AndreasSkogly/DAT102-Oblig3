@@ -6,7 +6,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     private T[] mengde;
     private int antall= 0;
-
+nhubhubgygby
 
     @Override
     public boolean erTom() {
