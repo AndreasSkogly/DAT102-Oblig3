@@ -6,7 +6,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     private T[] mengde;
     private int antall= 0;
-nhubhubgygby
+
 
     @Override
     public boolean erTom() {
@@ -49,15 +49,21 @@ nhubhubgygby
     @Override
     public MengdeADT<T> union(MengdeADT<T> annenMengde) {
         TabellMengde <T> resultat = new TabellMengde<>();
+
         for (T element : mengde){
             resultat.leggTil(element);
+
+            }
+        for (T i = 0; i <= annenMengde.antallElementer(); i++){
+            if(!annenMengde.inneholder(i)) {
+                resultat.leggTil(i);
+            }
+            
+            return resultat;
+            }
         }
 
-        for (T element : annenMengde) {
-            resultat.leggTil(element);
-        }
-        return resultat;
-    }
+
 
     @Override
     public MengdeADT<T> minus(MengdeADT<T> annenMengde) {
@@ -72,8 +78,6 @@ nhubhubgygby
         }
         mengde[antall] = element;
         antall++;
-        return true;
-
 
     }
 
