@@ -54,7 +54,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
             resultat.leggTil(element);
 
             }
-        for (T i = 0; i >= annenMengde.antallElementer(); i++){
+        for (T i = 0; i <= annenMengde.antallElementer(); i++){
             if(!annenMengde.inneholder(i)) {
                 resultat.leggTil(i);
             }
@@ -97,7 +97,6 @@ public class TabellMengde<T> implements MengdeADT<T> {
         mengde[antall-1] = null;
         antall--;
         return temp;
-
     }
 
     @Override
@@ -106,7 +105,13 @@ public class TabellMengde<T> implements MengdeADT<T> {
     }
 
     @Override
-    public int antallElementer() {
-        return antall;
+    public int antallElementer(MengdeADT<T> annenMengde) {
+        int count = 0;
+        if(!annenMengde.erTom()){
+            for(int i =0; i<=annenMengde.antallElementer(); i++){
+                count++;
+            }
+        }
+        return count;
     }
 }
