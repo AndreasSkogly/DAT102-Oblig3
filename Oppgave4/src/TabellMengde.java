@@ -54,11 +54,11 @@ public class TabellMengde<T> implements MengdeADT<T> {
             resultat.leggTil(element);
 
             }
-        for (T i = 0; i <= annenMengde.antallElementer(); i++){
+        for (T i = 0; i >= annenMengde.antallElementer(); i++){
             if(!annenMengde.inneholder(i)) {
                 resultat.leggTil(i);
             }
-            
+
             return resultat;
             }
         }
@@ -83,7 +83,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public void leggTilAlleFra(MengdeADT<T> annenMengde) {
-
+        List.of(mengde).addAll(List.of((T) annenMengde));
 
     }
 
