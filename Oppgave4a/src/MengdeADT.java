@@ -87,6 +87,6 @@ public interface MengdeADT<T> {
     /**
      * @return Antall elementer i mengden.
      */
-    int antallElementer(MengdeADT<T> annenMengde);
+    int antallElementer();
 
 }
