@@ -7,4 +7,3 @@ public class Node<T> implements MengdeADT2 {
             this.neste = null;
         }
     }
-}
