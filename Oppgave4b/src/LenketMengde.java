@@ -1,7 +1,4 @@
-import org.w3c.dom.Node;
-
-import java.util.Arrays;
-public class LenketMengde <T> implements MengdeADT<T> {
+public class LenketMengde <T> implements MengdeADT2<T> {
     private Node<T>start;
     private int antall;
 
@@ -39,7 +36,7 @@ public class LenketMengde <T> implements MengdeADT<T> {
         return false;
     }
     @Override
-    public boolean erDelmengdeAv(MengdeADT<T> annenMengde) {
+    public boolean erDelmengdeAv(MengdeADT2<T> annenMengde) {
 
         Node<T> temp = start;
 
@@ -52,7 +49,7 @@ public class LenketMengde <T> implements MengdeADT<T> {
 
         return true;
     }
-    public boolean erLik(MengdeADT<T>annenmengde){
+    public boolean erLik(MengdeADT2<T> annenmengde){
         if(antall!=annenmengde.antallElementer()){
             return false;
 
@@ -60,7 +57,7 @@ public class LenketMengde <T> implements MengdeADT<T> {
         return erDelmengdeAv(annenmengde);
 
     }
-    public  boolean erDisjunkt(MengdeADT<T>annenmengde){
+    public  boolean erDisjunkt(MengdeADT2<T> annenmengde){
         Node<T> temp = start;
         while (temp!=null ){
             if(annenmengde.inneholder(temp.element)){
@@ -73,8 +70,8 @@ public class LenketMengde <T> implements MengdeADT<T> {
         return true;
 
     }
-    public MengdeADT<T>snitt(MengdeADT<T>annenmengde){
-        MengdeADT<T> resultat= new LenketMengde<>();
+    public MengdeADT2<T> snitt(MengdeADT2<T> annenmengde){
+        MengdeADT2<T> resultat= new LenketMengde<>();
         Node<T>temp=start;
         while(temp != null ){
             if(annenmengde.inneholder(temp.element)){
@@ -88,9 +85,9 @@ public class LenketMengde <T> implements MengdeADT<T> {
 
 
     }
-    public MengdeADT<T> union(MengdeADT<T> annenMengde) {
+    public MengdeADT2<T> union(MengdeADT2<T> annenMengde) {
 
-        MengdeADT<T> resultat = new LenketMengde<>();
+        MengdeADT2<T> resultat = new LenketMengde<>();
 
         Node<T> temp = start;
 
@@ -108,8 +105,8 @@ public class LenketMengde <T> implements MengdeADT<T> {
         return resultat;
     }
 
-    public boolean MengdeADT<T> minus (MengdeADT<T> annenMengde) {
-        MengdeADT<T> resultat = new LenketMengde<>();
+    public MengdeADT2<T> minus(MengdeADT2<T> annenMengde) {
+        MengdeADT2<T> resultat = new LenketMengde<>();
         Node<T> temp = start;
 
         while (temp != null) {
@@ -123,5 +120,67 @@ public class LenketMengde <T> implements MengdeADT<T> {
         return resultat;
     }
 
+    public void leggTil(T element) {
+        if(!inneholder(element)){
+            Node<T> ny = new Node<>(element);
+            ny.neste = start;
+            start= ny;
+            antall++;
+        }
+
+    }
+    public void leggTilAlleFra(MengdeADT2<T> annenMengde){
+        T[]tabell= annenMengde.tilTabell();
+        for( T e : tabell){
+            leggTil(e);
+        }
+    }
+    public T fjern(T element) {
+
+        Node<T> temp = start;
+        Node<T> forrige = null;
+
+        while (temp != null) {
+
+            if (temp.element.equals(element)) {
+
+                if (forrige == null) {
+                    start = temp.neste;
+                } else {
+                    forrige.neste = temp.neste;
+                }
+
+                antall--;
+                return temp.element;
+            }
+
+            forrige = temp;
+            temp = temp.neste;
+        }
+
+        return null;
+    }
+    public T[] tilTabell() {
+        T[] tabell = (T[]) new Object[antall];
+        Node<T> temp = start;
+        int i = 0;
+
+        while (temp != null) {
+            tabell[i] = temp.element;
+            i++;
+            temp = temp.neste;
+        }
+
+        return tabell;
+    }
+
+    public int antallElementer() {
+        return antall;
+    }
 
 }
+
+
+
+
+

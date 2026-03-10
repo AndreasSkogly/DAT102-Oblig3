@@ -11,6 +11,7 @@ public class TabellMengdeTest {
     private TabellMengde<Integer> mengde;
     private TabellMengde<Integer> mengde2;
     private TabellMengde<Integer> mengde3;
+    //private MengdeADT<Integer> resultat;
 
 
     @BeforeEach
@@ -18,6 +19,7 @@ public class TabellMengdeTest {
         mengde = new TabellMengde<>(3);
         mengde2 = new TabellMengde<>(5);
         mengde3 = new TabellMengde<>(3);
+       // resultat = new TabellMengde<>(10);
 
 
         mengde.leggTil(1);
@@ -30,9 +32,9 @@ public class TabellMengdeTest {
         mengde2.leggTil(4);
         mengde2.leggTil(5);
 
-        mengde3.leggTil(2);
-        mengde3.leggTil(3);
-        mengde3.leggTil(1);
+        mengde3.leggTil(7);
+        mengde3.leggTil(8);
+        mengde3.leggTil(9);
 
     }
 
@@ -56,18 +58,23 @@ public class TabellMengdeTest {
 
     @Test
     void erLik() {
-        assertTrue(mengde.erLik(mengde3));
+        assertFalse(mengde.erLik(mengde2));
         assertFalse(mengde2.erLik(mengde));
         assertFalse(mengde3.erLik(mengde2));
     }
 
     @Test
     void erDisjunkt() {
+        assertFalse(mengde.erDisjunkt(mengde2));
+        assertFalse(mengde2.erDisjunkt(mengde));
+        assertTrue(mengde.erDisjunkt(mengde3));
     }
 
     @Test
     void snitt() {
-    assertEquals((3),(mengde.snitt(mengde2)));
+        Object[] resultat = mengde2.snitt(mengde).tilTabell();
+        Arrays.sort(resultat);
+        assertArrayEquals(new Integer[]{1,2,3}, resultat);
     }
 
     @Test
@@ -79,6 +86,12 @@ public class TabellMengdeTest {
 
     @Test
     void minus() {
+       Object[] resultat = mengde2.minus(mengde).tilTabell();
+       Arrays.sort(resultat);
+       Object[] resultat1 = mengde.minus(mengde3).tilTabell();
+       Arrays.sort(resultat1);
+       assertArrayEquals(new Integer[]{4,5},resultat);
+       assertArrayEquals(new Integer[]{1,2,3},resultat1);
     }
 
     @Test

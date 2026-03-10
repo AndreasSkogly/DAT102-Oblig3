@@ -1,4 +1,4 @@
-public interface MengdeADT<T> {
+public interface MengdeADT2<T> {
 
     /**
      * @return Om mengden er tom
@@ -15,19 +15,19 @@ public interface MengdeADT<T> {
      * @param annenMengde
      * @return Om mengden er en delmengde av en annenMengde
      */
-    boolean erDelmengdeAv(MengdeADT<T> annenMengde);
+    boolean erDelmengdeAv(MengdeADT2<T> annenMengde);
 
     /**
      * @param annenMengde
      * @return Om mengden er lik en annenMengde
      */
-    boolean erLik(MengdeADT<T> annenMengde);
+    boolean erLik(MengdeADT2<T> annenMengde);
 
     /**
      * @param annenMengde
      * @return Om mengden og en annenMengde er disjunkte
      */
-    boolean erDisjunkt(MengdeADT<T> annenMengde);
+    boolean erDisjunkt(MengdeADT2<T> annenMengde);
 
     /**
      * @param annenMengde
@@ -35,7 +35,7 @@ public interface MengdeADT<T> {
      *         Metoden skal ikke endre på mengden eller annenMengde,
      *         men lage en ny mengde som blir resultatet.
      */
-    MengdeADT<T> snitt(MengdeADT<T> annenMengde);
+    MengdeADT2<T> snitt(MengdeADT2<T> annenMengde);
 
     /**
      * @param annenMengde
@@ -43,7 +43,7 @@ public interface MengdeADT<T> {
      *         Metoden skal ikke endre på mengden eller annenMengde,
      *         men lage en ny mengde som blir resultatet.
      */
-    MengdeADT<T> union(MengdeADT<T> annenMengde);
+    MengdeADT2<T> union(MengdeADT2<T> annenMengde);
 
     /**
      * @param annenMengde
@@ -51,7 +51,7 @@ public interface MengdeADT<T> {
      *         Metoden skal ikke endre på mengden eller annenMengde,
      *         men lage en ny mengde som blir resultatet.
      */
-    MengdeADT<T> minus(MengdeADT<T> annenMengde);
+    MengdeADT2<T> minus(MengdeADT2<T> annenMengde);
 
     /**
      * Legger til et element i mengden. Elementet skal kun legges til hvis
@@ -67,7 +67,7 @@ public interface MengdeADT<T> {
      *
      * @param annenMengde
      */
-    void leggTilAlleFra(MengdeADT<T> annenMengde);
+    void leggTilAlleFra(MengdeADT2<T> annenMengde);
 
     /**
      * Fjerner og returnerer et element fra mengden. Hvis elementet ikke finnes

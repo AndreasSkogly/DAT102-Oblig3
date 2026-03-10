@@ -63,12 +63,10 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public MengdeADT<T> snitt(MengdeADT<T> annenMengde) {
-        MengdeADT<T> resultat = new TabellMengde<>(10);
-
-        for(int i = 0; i<antall; i++){
-            T element = mengde[i];
-            if(annenMengde.inneholder(element)){
-                resultat.leggTil(element);
+        MengdeADT<T> resultat = new TabellMengde<>(this.antallElementer());
+        for (int i = 0; i < antall; i++) {
+            if (annenMengde.inneholder(mengde[i])) {
+                resultat.leggTil(mengde[i]);
             }
         }
         return resultat;
@@ -94,15 +92,15 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public MengdeADT<T> minus(MengdeADT<T> annenMengde) {
-        MengdeADT<T> resultat = new TabellMengde<>(10);
+        MengdeADT<T> resultat_m = new TabellMengde<>(10);
         for(int i=0; i< antall;i++){
             T element = mengde[i];
             if(!annenMengde.inneholder(element)){
-                resultat.leggTil(element);
+                resultat_m.leggTil(element);
             }
         }
 
-        return resultat;
+        return resultat_m;
     }
 
     @Override

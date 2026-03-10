@@ -1,4 +1,4 @@
-public class Node<T> implements MengdeADT {
+public class Node<T> implements MengdeADT2 {
         T element;
         Node<T> neste;
 
