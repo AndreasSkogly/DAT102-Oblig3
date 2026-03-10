@@ -11,7 +11,6 @@ public class TabellMengdeTest {
     private TabellMengde<Integer> mengde;
     private TabellMengde<Integer> mengde2;
     private TabellMengde<Integer> mengde3;
-    //private MengdeADT<Integer> resultat;
 
 
     @BeforeEach
@@ -19,8 +18,6 @@ public class TabellMengdeTest {
         mengde = new TabellMengde<>(3);
         mengde2 = new TabellMengde<>(5);
         mengde3 = new TabellMengde<>(3);
-       // resultat = new TabellMengde<>(10);
-
 
         mengde.leggTil(1);
         mengde.leggTil(2);
@@ -35,7 +32,6 @@ public class TabellMengdeTest {
         mengde3.leggTil(7);
         mengde3.leggTil(8);
         mengde3.leggTil(9);
-
     }
 
     @Test
@@ -96,21 +92,35 @@ public class TabellMengdeTest {
 
     @Test
     void leggTil() {
+        mengde.leggTil(10);
+        assertTrue(mengde.inneholder(10));
     }
 
     @Test
     void leggTilAlleFra() {
+        mengde.leggTilAlleFra(mengde3);
+        assertArrayEquals(new Integer[]{1,2,3,7,8,9}, mengde.tilTabell());
     }
 
     @Test
     void fjern() {
+        mengde.fjern(2);
+        assertFalse(mengde.erTom());
+        mengde.fjern(1);
+        mengde.fjern(3);
+        assertTrue(mengde.erTom());
     }
 
     @Test
     void tilTabell() {
+        assertArrayEquals(new Integer[]{1,2,3},mengde.tilTabell());
+        assertArrayEquals(new Integer[]{7,8,9},mengde3.tilTabell());
+        assertArrayEquals(new Integer[]{1,2,3,4,5},mengde2.tilTabell());
     }
 
     @Test
     void antallElementer() {
+        assertEquals(3, mengde.antallElementer());
+        assertEquals(5, mengde2.antallElementer());
     }
 }
