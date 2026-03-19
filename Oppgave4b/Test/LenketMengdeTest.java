@@ -1,4 +1,4 @@
-import org.testng.annotations.Test;
+import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class LenketMengdeTest {
     @Test
@@ -160,7 +160,7 @@ public class LenketMengdeTest {
         m.leggTil(1);
         m.leggTil(2);
 
-        Integer[] tabell = m.tilTabell();
+        Object[] tabell = m.tilTabell();
 
         assertEquals(2, tabell.length);
     }
