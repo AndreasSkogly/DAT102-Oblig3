@@ -61,7 +61,9 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public MengdeADT<T> minus(MengdeADT<T> annenMengde) {
+
         return null;
+
     }
 
     @Override
