@@ -1,0 +1,92 @@
+public interface MengdeADT3<T> {
+
+    /**
+     * @return Om mengden er tom
+     */
+    boolean erTom();
+
+    /**
+     * @param element
+     * @return Om mengden inneholder element
+     */
+    boolean inneholder(T element);
+
+    /**
+     * @param annenMengde
+     * @return Om mengden er en delmengde av en annenMengde
+     */
+    boolean erDelmengdeAv(MengdeADT3<T> annenMengde);
+
+    /**
+     * @param annenMengde
+     * @return Om mengden er lik en annenMengde
+     */
+    boolean erLik(MengdeADT3<T> annenMengde);
+
+    /**
+     * @param annenMengde
+     * @return Om mengden og en annenMengde er disjunkte
+     */
+    boolean erDisjunkt(MengdeADT3<T> annenMengde);
+
+    /**
+     * @param annenMengde
+     * @return Snittet av mengden og en annenMengde.
+     *         Metoden skal ikke endre på mengden eller annenMengde,
+     *         men lage en ny mengde som blir resultatet.
+     */
+    MengdeADT3<T> snitt(MengdeADT3<T> annenMengde);
+
+    /**
+     * @param annenMengde
+     * @return Unionen av mengden og en annenMengde.
+     *         Metoden skal ikke endre på mengden eller annenMengde,
+     *         men lage en ny mengde som blir resultatet.
+     */
+    MengdeADT3<T> union(MengdeADT3<T> annenMengde);
+
+    /**
+     * @param annenMengde
+     * @return Mengden minus annenMengde.
+     *         Metoden skal ikke endre på mengden eller annenMengde,
+     *         men lage en ny mengde som blir resultatet.
+     */
+    MengdeADT3<T> minus(MengdeADT3<T> annenMengde);
+
+    /**
+     * Legger til et element i mengden. Elementet skal kun legges til hvis
+     * det ikke finnes i mengden fra før.
+     *
+     * @param element
+     */
+    void leggTil(T element);
+
+    /**
+     * Legger alle elementer fra en annenMengde til i mengden. Kun elementer
+     * som ikke finnes i mengden fra før, skal legges til.
+     *
+     * @param annenMengde
+     */
+    void leggTilAlleFra(MengdeADT3<T> annenMengde);
+
+    /**
+     * Fjerner og returnerer et element fra mengden. Hvis elementet ikke finnes
+     * i mengden, skal metoden returnere null.
+     *
+     * @param element Et element som er lik det elementet som skal fjernes
+     * @return Elementet som ble fjernet fra mengden, null hvis det ikke fantes.
+     */
+    T fjern(T element);
+
+    /**
+     * @return En tabell av elementene i mengden. Tabellen har størrelse lik
+     *         antall elementer i mengden.
+     */
+    T[] tilTabell();
+
+    /**
+     * @return Antall elementer i mengden.
+     */
+    int antallElementer();
+
+}

@@ -3,7 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DAT102-Oblig3.iml" filepath="$PROJECT_DIR$/.idea/DAT102-Oblig3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Oppgave4/Oppgave4.iml" filepath="$PROJECT_DIR$/Oppgave4/Oppgave4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DEL2_oppgave4/DEL2_oppgave4.iml" filepath="$PROJECT_DIR$/DEL2_oppgave4/DEL2_oppgave4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppgave4a/Oppgave4a.iml" filepath="$PROJECT_DIR$/Oppgave4a/Oppgave4a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppgave4b/Oppgave4b.iml" filepath="$PROJECT_DIR$/Oppgave4b/Oppgave4b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppgave4c/Oppgave4c.iml" filepath="$PROJECT_DIR$/Oppgave4c/Oppgave4c.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oppgave4f/oppgave4f.iml" filepath="$PROJECT_DIR$/oppgave4f/oppgave4f.iml" />
     </modules>
   </component>
 </project>
